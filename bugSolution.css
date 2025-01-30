@@ -1,0 +1,20 @@
+The best solution is often to avoid using `@apply` with pseudo-selectors and instead define the hover styles directly within the component's CSS:
+```css
+/* bugSolution.css */
+.btn {
+  @apply bg-blue-500 text-white px-4 py-2 rounded;
+}
+.btn:hover {
+  @apply bg-blue-700;
+}
+```
+This more explicitly defines the hover state and removes any ambiguity on how Tailwind should apply the styles.  Alternatively, you can use the `@apply` directive without pseudo-selectors to set baseline styles, then separately define the styles of the hover, active, or focus states:
+```css
+.btn {
+  @apply bg-blue-500 text-white px-4 py-2 rounded;
+}
+.btn:hover {
+  /* Add additional styles here*/
+}
+```
+This approach maintains separation of concerns and enhances readability.  Choose the most maintainable method suited to your project's styling complexity.
